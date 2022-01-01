@@ -1,0 +1,110 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    height: 152px;
+    background: #3A3A3A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 64px;
+    color: white;
+    margin: 0;
+}
+
+.main,
+.win,
+.lose,
+.point,
+.point_continue,
+.point_win,
+.point_lose{
+    background: #C4C4C4;
+    width: 100%;
+    height: calc(100vh - 152px);
+}
+
+.score_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score_wrap div {
+    margin-top: 42px;
+}
+
+.score,
+.your_bet{
+    font-weight: 500;
+}
+
+.none{
+    display: none;
+}
+
+.input{
+    display: block;
+    width: 250px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    margin: 54px auto 0 auto;
+    padding-left: 10px;
+}
+
+input:focus{
+    border: 1px solid #000000;
+    outline: none;
+}
+
+.make_bet,
+.take_bet,
+.ok_bet,
+.trow_one_more,
+.point_win_button,
+.point_lose_button{
+    display: block;
+    width: 254px;
+    height: 53px;
+    margin: 42px auto 0 auto;
+    background: #676767;
+    border: none;
+    cursor: pointer;
+}
+
+.img_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 42px auto 0 auto;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+
+.loss_wrap,
+.win_wrap,
+.point_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.loss_wrap div,
+.win_wrap div{
+    padding: 5px;
+}

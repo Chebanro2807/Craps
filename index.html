@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Казино</h1>
+        </header>
+        <section class="main">
+            <div class="score_wrap">
+                <div>Ваш баланс:&nbsp</div>
+                <div class="score"></div>
+            </div>
+            <input class="input" type="text" placeholder="Сделать ставку">
+            <button class="make_bet">
+                Бросить кубики
+            </button>
+            <div class="img_wrap">
+                <img src="img/cube.png" alt="cubes">
+            </div>
+        </section>
+
+        <section class="win none">
+            <div class="score_wrap">
+                <div>Ваш баланс:&nbsp</div>
+                <div class="score"></div>
+            </div>
+            <div class="win_wrap">
+                <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
+                <div>Вы выиграли, и получаете <span class="win_cash"></span>$</div>
+            </div>
+            <button class="take_bet">
+                Забрать награду
+            </button>
+            <div class="img_wrap">
+                <img src="img/cube.png" alt="cubes">
+            </div>
+        </section>
+
+        <section class="lose none">
+            <div class="score_wrap">
+                <div>Ваш баланс:&nbsp</div>
+                <div class="score"></div>
+            </div>
+            <div class="loss_wrap">
+                <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
+                <div>Ваша ставка в <span class="lose_cash"></span>$, не сыграла</div>
+            </div>
+            <button class="ok_bet">
+                Жаль, ну ладно
+            </button>
+            <div class="img_wrap">
+                <img src="img/cube.png" alt="cubes">
+            </div>
+        </section>
+
+        <section class="point none">
+            <div class="score_wrap">
+                <div>Ставка: <span class="your_bet"></span></div>
+            </div>
+            <div class="point_wrap">
+                <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
+                <div class="mt-20">Твое очко - <span class="cubes_value"></span></div>
+                <div class="mt-20">Продолжай бросать.</div>
+            </div>
+            <button class="trow_one_more">
+                Бросить еще раз
+            </button>
+            <div class="img_wrap">
+                <img src="img/cube.png" alt="cubes">
+            </div>
+        </section>
+
+        <section class="point_continue none">
+            <div class="score_wrap">
+                <div>Ставка: <span class="your_bet"></span></div>
+            </div>
+            <div class="point_wrap">
+                <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
+                <div class="mt-20">Продолжай бросать.</div>
+            </div>
+            <button class="trow_one_more">
+                Бросить еще раз
+            </button>
+            <div class="img_wrap">
+                <img src="img/cube.png" alt="cubes">
+            </div>
+        </section>
+
+        <section class="point_lose none">
+            <div class="score_wrap">
+                <div>Ставка: <span class="your_bet"></span></div>
+            </div>
+            <div class="loss_wrap">
+                <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
+                <div>Ваша ставка в <span class="lose_cash"></span>$, не сыграла</div>
+            </div>
+            <button class="point_lose_button">
+                Жаль, ну ладно
+            </button>
+            <div class="img_wrap">
+                <img src="img/cube.png" alt="cubes">
+            </div>
+        </section>
+
+        <section class="point_win none">
+            <div class="score_wrap">
+                <div>Ставка: <span class="your_bet"></span></div>
+            </div>
+            <div class="point_wrap">
+                <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
+                <div>Вы выиграли, и получаете <span class="win_cash"></span>$</div>
+            </div>
+            <button class="point_win_button">
+                Забрать награду
+            </button>
+            <div class="img_wrap">
+                <img src="img/cube.png" alt="cubes">
+            </div>
+        </section>
+    </div>
+</body>
+</html>
