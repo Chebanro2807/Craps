@@ -9,23 +9,20 @@ let pointLose = document.querySelector('.point_lose');
 
 let cube1 = document.querySelectorAll('.cube1');
 let cube2 = document.querySelectorAll('.cube2');
+
 let winBlock = document.querySelectorAll('.win_cash');
-
 let loseBlock = document.querySelectorAll('.lose_cash');
-
 let cubesValue = document.querySelector('.cubes_value');
 let betValue = document.querySelectorAll('.your_bet');
-
-
 let inputValue = document.querySelector('.input');
+let scores = document.querySelectorAll('.score');
+
 let buttonMakeBet = document.querySelector('.make_bet');
 let buttonTakeBet = document.querySelector('.take_bet');
 let buttonOkBet = document.querySelector('.ok_bet');
-let oneTrow = document.querySelectorAll('.trow_one_more');
+let oneTrowButton = document.querySelectorAll('.trow_one_more');
 let pointWinButton = document.querySelector('.point_win_button');
 let pointLoseButton = document.querySelector('.point_lose_button');
-
-let scores = document.querySelectorAll('.score');
 
 let firstCube;
 let secondCube;
@@ -34,12 +31,11 @@ let loseArr = [2,8,12];
 let pointArr = [3,4,5,6,9,10];
 let balance = 500;
 
-
 // Слушатели
 buttonTakeBet.addEventListener('click', winClick.bind(this));
 buttonMakeBet.addEventListener('click', betClick.bind(this));
 buttonOkBet.addEventListener('click', loseClick.bind(this));
-oneTrow.forEach((item)=>{
+oneTrowButton.forEach((item)=>{
     item.addEventListener('click', pointClick.bind(this));
 })
 pointWinButton.addEventListener('click', pointWinClick.bind(this));
@@ -142,10 +138,10 @@ function changePoint() {
 }
 
 function changePointContinue() {
+    setCubes()
     betValue.forEach((bet)=>{
         bet.innerHTML = `${inputValue.value}$`
     })
-    setCubes()
 }
 
 // Логика
@@ -175,7 +171,6 @@ function getRandom(min,max) {
 function randomCubes(){
     firstCube = getRandom(1,7);
     secondCube = getRandom(1,7);
-    console.log(firstCube+secondCube)
 }
 
 function updateScore(state) {
@@ -191,7 +186,6 @@ function updateScore(state) {
 }
 
 function pointLogic() {
-    console.log('logic'+cubesValue.innerHTML )
     if (+cubesValue.innerHTML === firstCube+secondCube) {
         show(pointWin,pointCont);
         show(pointWin,point);
