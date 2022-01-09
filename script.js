@@ -1,11 +1,7 @@
-// взаемодействие с DOM
 let win = document.querySelector('.win');
 let main = document.querySelector('.main');
 let lose = document.querySelector('.lose');
 let point = document.querySelector('.point');
-let pointCont = document.querySelector('.point_continue');
-let pointWin = document.querySelector('.point_win');
-let pointLose = document.querySelector('.point_lose');
 
 let cube1 = document.querySelectorAll('.cube1');
 let cube2 = document.querySelectorAll('.cube2');
@@ -17,136 +13,84 @@ let betValue = document.querySelectorAll('.your_bet');
 let inputValue = document.querySelector('.input');
 let scores = document.querySelectorAll('.score');
 
-let buttonMakeBet = document.querySelector('.make_bet');
-let buttonTakeBet = document.querySelector('.take_bet');
-let buttonOkBet = document.querySelector('.ok_bet');
-let oneTrowButton = document.querySelectorAll('.trow_one_more');
-let pointWinButton = document.querySelector('.point_win_button');
-let pointLoseButton = document.querySelector('.point_lose_button');
+let clickMain = document.querySelector('.clickMain');
+let clickWin = document.querySelector('.clickWin');
+let clickLose = document.querySelector('.clickLose');
 
-let firstCube;
-let secondCube;
-let winArr = [7,11];
-let loseArr = [2,8,12];
-let pointArr = [3,4,5,6,9,10];
-let balance = 500;
-
-// Слушатели
-buttonTakeBet.addEventListener('click', winClick.bind(this));
-buttonMakeBet.addEventListener('click', betClick.bind(this));
-buttonOkBet.addEventListener('click', loseClick.bind(this));
-oneTrowButton.forEach((item)=>{
-    item.addEventListener('click', pointClick.bind(this));
-})
-pointWinButton.addEventListener('click', pointWinClick.bind(this));
-pointLoseButton.addEventListener('click', pointLoseClick.bind(this));
+clickMain.addEventListener('click', start.bind(this));
+clickWin.addEventListener('click', goToMain.bind(this,'win'))
+clickLose.addEventListener('click', goToMain.bind(this,'lose'))
 
 
-// Главное меню
+let balance = 500
+goToMain()
+function checkState(cubesSum) {
+    let state;
+    const winArr = [7,11];
+    const loseArr = [2,8,12];
+    const pointArr = [3,4,5,6,9,10];
 
-updateScore('');
-
-function betClick() {
-    randomCubes()
-    checkWin()
-    checkLose()
-    checkPoint()
-}
-
-// Победа
-
-function winClick() {
-    updateScore('win')
-    clearInput();
-    show(main,win);
-}
-
-function checkWin() {
     winArr.forEach((item)=>{
-        if (item === firstCube+secondCube){
-            changeWin()
-            show(win,main);
+        if (item === cubesSum){
+            state = 'win'
         }
     })
-}
-
-function changeWin() {
-    setCubes()
-    winBlock.forEach((win)=>{
-        win.innerHTML = `${inputValue.value*2}`
-    })
-}
-
-// Поражение
-
-function loseClick() {
-    updateScore('lose')
-    clearInput();
-    show(main,lose);
-}
-
-function checkLose() {
     loseArr.forEach((item)=>{
-        if (item === firstCube+secondCube){
-            changeLose()
-            show(lose,main);
+        if (item === cubesSum){
+            state = 'lose'
         }
     })
-}
-
-function changeLose() {
-    setCubes()
-    loseBlock.forEach((lose)=>{
-        lose.innerHTML = `${inputValue.value}`
-    })
-}
-
-// Поинт
-
-function pointClick() {
-    randomCubes();
-    pointLogic();
-}
-
-function pointWinClick() {
-    updateScore('win')
-    clearInput();
-    show(main,pointWin);
-}
-
-function pointLoseClick() {
-    updateScore('lose')
-    clearInput();
-    show(main,pointLose);
-}
-
-function checkPoint() {
     pointArr.forEach((item)=>{
-        if (item === firstCube+secondCube){
-            changePoint()
-            show(point,main);
+        if (item === cubesSum){
+            state = 'point'
         }
     })
+    return state
 }
 
-function changePoint() {
-    setCubes()
-    cubesValue.innerHTML = `${firstCube+secondCube}`
-    betValue.forEach((bet)=>{
-        bet.innerHTML = `${inputValue.value}$`
+function start() {
+    let arg = twoRandomCubes();
+    let cubesSum = arg[0] + arg[1];
+    setCubes(arg[0],arg[1])
+    cubesValue.innerHTML = `${cubesSum}`
+    changeDom(checkState(cubesSum))
+}
+function changeDom (state) {
+    if (state === 'win') {
+        winBlock.forEach((win)=>{
+            win.innerHTML = `${inputValue.value*2}`
+        })
+        show(win,main);
+    } else if (state === 'lose') {
+        loseBlock.forEach((lose)=>{
+            lose.innerHTML = `${inputValue.value}`
+        })
+        show(lose,main);
+    }
+    else {
+        betValue.forEach((bet)=>{
+            bet.innerHTML = `${inputValue.value}$`
+        })
+        show(point,main);
+    }
+}
+
+function goToMain(state) {
+    if (state === 'win'){
+        balance = balance + inputValue.value*2
+        show(main,win)
+    }
+    if (state === 'lose'){
+        balance = balance - inputValue.value
+        show(main,lose)
+    }
+    scores.forEach((item)=>{
+        item.innerHTML = `${balance}$`
     })
+    clearInput();
 }
 
-function changePointContinue() {
-    setCubes()
-    betValue.forEach((bet)=>{
-        bet.innerHTML = `${inputValue.value}$`
-    })
-}
-
-// Логика
-
-function setCubes() {
+function setCubes(firstCube,secondCube) {
     cube1.forEach((cube)=>{
         cube.innerHTML = `${firstCube}`
     })
@@ -164,44 +108,12 @@ function show(show,hide){
     hide.classList.add('none')
 }
 
-function getRandom(min,max) {
-    return  Math.floor(Math.random() * (max - min) + min);
+function twoRandomCubes(){
+    function getRandom(min,max) {
+        return  Math.floor(Math.random() * (max - min) + min);
+    }
+    const firstCube = getRandom(1,7);
+    const secondCube = getRandom(1,7);
+    return [firstCube, secondCube];
 }
 
-function randomCubes(){
-    firstCube = getRandom(1,7);
-    secondCube = getRandom(1,7);
-}
-
-function updateScore(state) {
-    if (state === 'win'){
-        balance = balance + inputValue.value*2
-    }
-    if (state === 'lose'){
-        balance = balance - inputValue.value
-    }
-    scores.forEach((item)=>{
-        item.innerHTML = `${balance}$`
-    })
-}
-
-function pointLogic() {
-    if (+cubesValue.innerHTML === firstCube+secondCube) {
-        show(pointWin,pointCont);
-        show(pointWin,point);
-        setCubes()
-        winBlock.forEach((win)=>{
-            win.innerHTML = `${inputValue.value*2}`
-        })
-    } else if (firstCube+secondCube === 7){
-        setCubes()
-        show(pointLose,pointCont);
-        show(pointLose,point);
-        loseBlock.forEach((lose)=>{
-            lose.innerHTML = `${inputValue.value}`
-        })
-    } else {
-        show(pointCont,point);
-        changePointContinue();
-    }
-}

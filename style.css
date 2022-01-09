@@ -69,12 +69,10 @@ input:focus{
     outline: none;
 }
 
-.make_bet,
-.take_bet,
-.ok_bet,
-.trow_one_more,
-.point_win_button,
-.point_lose_button{
+.clickMain,
+.clickWin,
+.clickLose,
+.pointCont{
     display: block;
     width: 254px;
     height: 53px;
