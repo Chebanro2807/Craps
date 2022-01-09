@@ -67,7 +67,7 @@ function eventClickHandler(handler) {
                 next = lose;
             } else {
                 showPointValues(cubesValue);
-                showBetValue();
+                showBetValue()
                 next = point;
             }
         } else { // if (curWindow === point || curWindow === pointCont)
