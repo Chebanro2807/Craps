@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -20,7 +19,7 @@
                 <div class="score"></div>
             </div>
             <input class="input" type="text" placeholder="Сделать ставку">
-            <button class="make_bet">
+            <button class="trow_one_more">
                 Бросить кубики
             </button>
             <div class="img_wrap">
@@ -37,7 +36,7 @@
                 <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
                 <div>Вы выиграли, и получаете <span class="win_cash"></span>$</div>
             </div>
-            <button class="take_bet">
+            <button class="win_button">
                 Забрать награду
             </button>
             <div class="img_wrap">
@@ -54,7 +53,7 @@
                 <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
                 <div>Ваша ставка в <span class="lose_cash"></span>$, не сыграла</div>
             </div>
-            <button class="ok_bet">
+            <button class="lose_button">
                 Жаль, ну ладно
             </button>
             <div class="img_wrap">
@@ -103,7 +102,7 @@
                 <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
                 <div>Ваша ставка в <span class="lose_cash"></span>$, не сыграла</div>
             </div>
-            <button class="point_lose_button">
+            <button class="lose_button">
                 Жаль, ну ладно
             </button>
             <div class="img_wrap">
@@ -117,9 +116,9 @@
             </div>
             <div class="point_wrap">
                 <div>На кубиках: <span class="cube1"></span>, <span class="cube2"></span></div>
-                <div>Вы выиграли, и получаете <span class="win_cash"></span>$</div>
+                <div class="mt-20">Вы выиграли, и получаете <span class="win_cash"></span>$</div>
             </div>
-            <button class="point_win_button">
+            <button class="win_button">
                 Забрать награду
             </button>
             <div class="img_wrap">
@@ -127,5 +126,7 @@
             </div>
         </section>
     </div>
+<!--    <script src="js/script.js"></script>-->
+    <script src="js/showDOM.js"></script>
 </body>
 </html>
