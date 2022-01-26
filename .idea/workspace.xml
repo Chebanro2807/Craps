@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6358fafc-24e2-4533-9270-a805d1124504" name="Changes" comment="" />
+    <list default="true" id="6358fafc-24e2-4533-9270-a805d1124504" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,9 +49,6 @@
         </option>
       </RecentBranches>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="22xT3BtDnST8Xejj5KiajP5nOn7" />
   <component name="ProjectLevelVcsManager">
@@ -112,7 +111,7 @@
       <workItem from="1641712688505" duration="11654000" />
       <workItem from="1642006464723" duration="1211000" />
       <workItem from="1643044634514" duration="1361000" />
-      <workItem from="1643194616320" duration="1497000" />
+      <workItem from="1643194616320" duration="1899000" />
     </task>
     <servers />
   </component>
