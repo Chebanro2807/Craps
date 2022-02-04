@@ -55,7 +55,9 @@ function show(newWindow) {
 // Обработчик
 
 function eventClickHandler(handler) {
+
     let next = main;
+    console.log(handler)
     if (handler.name === "cubesHandler") {
         let cubesValue = handler();
         if (curWindow === main) {
