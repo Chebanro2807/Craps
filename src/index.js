@@ -107,11 +107,9 @@ function loseHandler() {
 // Проверки
 
 function checkWin(cubesValue) {
-    let flag = false;
+    let flag;
     winArr.forEach((item)=>{
-        if (item === cubesValue) {
-            flag = true;
-        }
+        flag = item === cubesValue ? true : false;
     })
     return flag;
 }
